@@ -13,7 +13,7 @@ function mainController($scope, $http) {
             console.log('Error: ' + data);
         });
 
-    // Cuando se añade un nueva nota, manda el texto a la API
+    // Cuando se añade un nueva nota, manda el texto de la nota a la API
     $scope.createNote = function(){
         $http.post('/api/notes', $scope.formData)
             .success(function(data) {
@@ -26,7 +26,20 @@ function mainController($scope, $http) {
             });
     };
 
-    // Borra una nota despues de checkearlo como acabado
+    // Cuando se añade un nueva nota favorita, manda el texto de la nota a la API
+    $scope.addNoteFavourite = function(){
+        $http.post('/api/notes/favourites', $scope.formData)
+            .success(function(data) {
+                $scope.formData = {};
+                $scope.notes = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error:' + data);
+            });
+    };
+
+    // Borra una nota
     $scope.deleteNote = function(id) {
         $http.delete('/api/notes/' + id)
             .success(function(data) {
