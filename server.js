@@ -22,7 +22,7 @@ mongoose.connect('mongodb://localhost/notes', function(err, res) {
 });
 
 // Definición de modelos
-var Todo = mongoose.model('Note', {
+var Note = mongoose.model('Note', {
     text: String
 });
 
