@@ -30,19 +30,17 @@ var notes = express.Router();
 notes.route('/notes')
     .get(NoteCtrl.findAllNotes)
     .post(NoteCtrl.addNote)
-    // .post(NoteCtrl.addNoteFavourite)
 
-notes.route('/notes/:note')
+notes.route('/notes/:id')
     .get(NoteCtrl.findById)
     .delete(NoteCtrl.deleteNote)
 
+notes.route('/notes/favourites')
+    .get(NoteCtrl.findAllNotesFavourites)
+    .post(NoteCtrl.addNoteFavourite)
+
+
 app.use('/api', notes);
-
-// var notesFavourites = express.Router();
-
-// notesFavourites.route('/notes/favourites')
-//     .get(NoteCtrl.findAllNotesFavourites)
-//   app.use('/api/favourites', notesFavourites);
 
 
 // Carga una vista HTML simple donde irá nuestra Single App Page, Angular Manejará el Frontend

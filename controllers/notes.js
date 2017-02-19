@@ -47,9 +47,10 @@ exports.addNote = function(req, res) {
     });
 };
 
+//DELETE borra una nota
 exports.deleteNote =  function(req, res) {
     Note.remove({
-        _id: req.params.note
+        _id: req.params.id
     }, function(err, todo) {
         if(err){
             res.send(err);
@@ -63,27 +64,37 @@ exports.deleteNote =  function(req, res) {
     })
 };
 
+////NOTAS FAVORITAS////
+
 //GET - TODOS LAS NOTAS favoritas
-// exports.findAllNotesFavourites = function(req, res) {
-//     Favourite.find(function(err, Favourite) {
-//         if (err){
-//           res.send(500, err.message);
-//         }
-//         else{
-//           res.status(200).jsonp(Favourite);
-//         }
-//     });
-// };
+exports.findAllNotesFavourites = function(req, res) {
+    Favourite.find(function(err, favourite) {
+        if (err){
+          res.send(500, err.message);
+        }
+        else{
+          res.status(200).jsonp(favourite);
+        }
+    });
+};
 
 
 // POST añade una nota favorita
-// app.post('/api/notes/favourites', function(req, res) {
-//     Note.create({
-//         text: req.body.text,
-//         done: false
-//     }, function(err, note){
-//         if(err) {
-//             res.send(err);
-//         }
-//     });
-// });
+exports.addNoteFavourite = function(req, res) {
+    Favourite.create({
+        user: req.body.user, //prueba
+        favouritesNotes: req.body.favourites, //req.params.note
+        done: false
+
+  }, function(err, favourite) {
+      if(err){
+          res.send(err);
+      }
+      Favourite.find(function(err, favourite) {
+          if(err){
+              res.send(err);
+          }
+          res.json(favourite);
+      });
+  })
+};
