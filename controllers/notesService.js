@@ -82,9 +82,8 @@ exports.findAllNotesFavourites = function(req, res) {
 // POST añade una nota favorita
 exports.addNoteFavourite = function(req, res) {
     Favourite.create({
-        user: req.body.user, //prueba
-        favouritesNotes: req.body.favourites, //req.params.note
-        done: false
+        user: req.body.user,
+        favouritesNotes: req.body.favouritesNotes //req.body.favouritesNotes, //req.params.note
 
   }, function(err, favourite) {
       if(err){

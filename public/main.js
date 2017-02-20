@@ -24,7 +24,6 @@ function mainController($scope, $http) {
             });
     };
 
-
     // Borra una nota
     $scope.deleteNote = function(id) {
         $http.delete('/api/notes/' + id)
@@ -38,9 +37,9 @@ function mainController($scope, $http) {
 
     //Cuando se añade un nueva nota favorita
     $scope.addNoteFavourite = function(){
-        $http.post('/api/notes/favourites/', $scope.notes) //??
+        $http.post('/api/favourites/', {user: 'luismi', favouritesNotes: $scope.favourites})
             .success(function(data) {
-                $scope.notes = data;
+                $scope.favourites = data;
                 console.log(data);
             })
             .error(function(data) {
@@ -49,10 +48,10 @@ function mainController($scope, $http) {
     };
 
     // Cuando click boton peticion de todos las favoritas
-  $scope.renderFavourite = function(){
-    $http.get('/api/notes/favourites')
+  $scope.renderFavourites = function(){
+    $http.get('/api/favourites')
         .success(function(data) {
-            $scope.notes = data;
+            $scope.favourites = data;
         })
         .error(function(data) {
             console.log('Error: ' + data);

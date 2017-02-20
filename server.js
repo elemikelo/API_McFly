@@ -22,7 +22,7 @@ mongoose.connect('mongodb://localhost/notes', function(err, res) {
 // Import models & controllers
 var modelNote = require('./models/note')(app, mongoose);
 var modelFavourite = require('./models/usersFavourites')(app, mongoose);
-var NoteCtrl = require('./controllers/notes');
+var NoteCtrl = require('./controllers/notesService');
 
 // // API routes
 var notes = express.Router();
@@ -35,12 +35,15 @@ notes.route('/notes/:id')
     .get(NoteCtrl.findById)
     .delete(NoteCtrl.deleteNote)
 
-notes.route('/notes/favourites')
+app.use('/api', notes);
+
+var favourites = express.Router();
+
+notes.route('/favourites')
     .get(NoteCtrl.findAllNotesFavourites)
     .post(NoteCtrl.addNoteFavourite)
-
-
-app.use('/api', notes);
+    
+app.use('/api', favourites);
 
 
 // Carga una vista HTML simple donde irá nuestra Single App Page, Angular Manejará el Frontend
