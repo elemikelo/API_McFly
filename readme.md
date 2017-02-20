@@ -5,13 +5,13 @@ ligera idea, pero realmente soy nuevo en esto.
 
 # ¿Dispones de cuentas en redes sociales? ¿Cuáles?
 Si,
-https://twitter.com/EleMikelo
-https://www.facebook.com/profile.php?id=1606553343
+- https://twitter.com/EleMikelo
+- https://www.facebook.com/profile.php?id=1606553343
 
 # ¿Perteneces a algún foro, meetup, o lista relacionada con la programación?, ¿a cuales?,
 
-https://www.freecodecamp.com
-http://www.stackoverflow.com
+- https://www.freecodecamp.com
+- http://www.stackoverflow.com
 
 # ¿has acudido a algún evento alguna vez? O realizado algún proyecto, propio o de terceros?
 

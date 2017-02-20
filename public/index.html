@@ -13,7 +13,9 @@
         <div class="jumbotron text-center">
             <h1>Notes App <span class="label label-info">{{ notes.length }}</span></h1>
         </div>
-        <h2 class="text-center">Favourites Notes</h2>
+        <h2 class="text-center">Favourites Notes
+        <button class="btn btn-success btn-sx" ng-click="renderFavourites()">View Favourites</button></h2>
+
         <div id="note-list" class="row">
             <div class="col-sm-4 col-sm-offset-4">
                 <li ng-repeat="favourite in favourites">
@@ -28,8 +30,8 @@
             <div class="col-sm-4 col-sm-offset-4">
                 <li ng-repeat="note in notes">
                     {{ note.text }}
-                    <button class="btn btn-warning btn-xs" type="button" name="button" ng-click="deleteNote(note._id)">&times;</button>
-                    <button class="btn btn-danger btn-xs" type="button" name="button" ng-click="addNoteFavourite(note.text)">Like</button>
+                    <button class="btn btn-danger btn-xs" type="button" name="button" ng-click="deleteNote(note._id)">&times;</button>
+                    <button class="btn btn-info btn-xs" type="button" onClick="this.disabled=true" name="button" ng-click="addNoteFavourite(note.text)">Like</button>
                 </li>
             </div>
         </div>
@@ -39,10 +41,9 @@
             <div class="col-sm-8 col-sm-offset-2 text-center">
                 <form>
                     <div class="form-group">
-                        <input type="text" class="form-control input-lg text-center" placeholder="Create Note" ng-model="formData.text" >
+                        <input type="text" class="form-control input-lg text-center" placeholder="Write your note..." ng-model="formData.text" >
                     </div>
                     <button class="btn btn-primary btn-lg" ng-click="createNote()">Add</button>
-                    <button class="btn btn-success btn-lg" ng-click="renderFavourites()">View Favourites</button>
                 </form>
             </div>
         </div>
