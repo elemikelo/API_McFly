@@ -89,11 +89,12 @@ exports.addNoteFavourite = function(req, res) {
       if(err){
           res.send(err);
       }
-      Favourite.find(function(err, favourite) {
-          if(err){
-              res.send(err);
-          }
-          res.json(favourite);
-      });
+      res.json(favourite);
+      // Favourite.find(function(err, favourite) {
+      //     if(err){
+      //         res.send(err);
+      //     }
+      //
+      // });
   })
 };

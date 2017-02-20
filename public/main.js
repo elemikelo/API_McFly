@@ -36,10 +36,10 @@ function mainController($scope, $http) {
     };
 
     //Cuando se añade un nueva nota favorita
-    $scope.addNoteFavourite = function(){
-        $http.post('/api/favourites/', {user: 'luismi', favouritesNotes: $scope.favourites})
+    $scope.addNoteFavourite = function(note){
+        $http.post('/api/favourites/', {user: 'luismi', favouritesNotes: note })
             .success(function(data) {
-                $scope.favourites = data;
+              //  $scope.favourites = data;
                 console.log(data);
             })
             .error(function(data) {

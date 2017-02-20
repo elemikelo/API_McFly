@@ -29,7 +29,7 @@
                 <li ng-repeat="note in notes">
                     {{ note.text }}
                     <button class="btn btn-warning btn-xs" type="button" name="button" ng-click="deleteNote(note._id)">&times;</button>
-                    <button class="btn btn-danger btn-xs" type="button" name="button" ng-click="addNoteFavourite(note._id)">Like</button>
+                    <button class="btn btn-danger btn-xs" type="button" name="button" ng-click="addNoteFavourite(note.text)">Like</button>
                 </li>
             </div>
         </div>
