@@ -5,4 +5,4 @@
 3. Run http://localhost:8000
 
 Aplicación desarrollada con express & mongodb. Algo también de Angular para
-el frontend.
+la parte frontend.
